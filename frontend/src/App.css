@@ -1,0 +1,4 @@
+.custom-max-height {
+  max-height: 580px; /* Set your desired maximum height */
+  overflow: hidden; /* Optional: Hides any overflow content */
+}
