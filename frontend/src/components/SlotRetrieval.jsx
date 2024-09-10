@@ -23,7 +23,7 @@ const SlotRetrieval = () => {
         const userLatitude = locationAccess ? 29.250062 : null; // Example latitude
         const userLongitude = locationAccess ? 77.009861 : null; // Example longitude
         const response = await fetch(
-            `http://192.168.75.225:8080/api/slots/doctor/1?date=2024-09-15/search?name=${searchTerm}&userLatitude=${userLatitude}&userLongitude=${userLongitude}&page=${page}&size=10`
+            `http://192.168.75.225:8080/api/slots/doctor/1?date=2024-09-15`
         );
         const data = await response.json();
         setDoctors(data);

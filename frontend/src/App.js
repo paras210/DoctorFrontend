@@ -6,6 +6,7 @@ import Select from './components/SelectForm';
 import Footer from './components/footer';
 import DoctorList from './components/DoctorList'
 import DoctorSearch from './components/DoctorSearch';
+import DoctorProfile from './components/DoctorProfile';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import SlotRetrieval from './components/SlotRetrieval';
@@ -13,6 +14,7 @@ function App() {
   const [selectedSpeciality, setSelectedSpeciality] = useState("CARDIOLOGIST");
   const [selectedRange, setSelectedRange] = useState('10');
   const apikey=process.env.REACT_APP_BASE_URL
+  const [id,setId] = useState(1); 
   return (
     <>
       <Router>
@@ -24,6 +26,7 @@ function App() {
             <Route exact path="/gpt" element={<DoctorList  apikey={apikey}/>}/>
             <Route exact path="/search" element={<DoctorSearch apikey={apikey}/>}/>
             <Route exact path="/slotretrieval" element={<SlotRetrieval apikey={apikey}/>}/>
+            <Route exact path="/doctor/:doctorId" element={<DoctorProfile id={id} setId={setId}/>}/>
             <Route exact path="/select" element={<Select apikey={apikey} selectedSpeciality={selectedSpeciality} selectedRange={selectedRange} setSelectedSpeciality={setSelectedSpeciality} setSelectedRange={setSelectedRange} />}/>
 
           </Routes>

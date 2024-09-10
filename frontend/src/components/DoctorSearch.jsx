@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
+import { Navigate, useNavigate } from 'react-router-dom';
 const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -16,6 +16,7 @@ const DoctorSearch = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [locationAccess, setLocationAccess] = useState(false);
     const [userLocation, setUserLocation] = useState({ latitude: null, longitude: null });
+    const navigate = useNavigate();
 
     const fetchDoctors = useCallback(debounce(async (searchTerm, page) => {
         setLoading(true);
@@ -68,7 +69,9 @@ const DoctorSearch = () => {
             });
         }
     }, [locationAccess]);
-
+    const handleDoctorClick = (doctorId) => {
+        navigate(`/doctor/${doctorId}`); // Navigate to doctor profile page
+    };
     return (
         <div className="doctor-search-container">
             <nav className="search-bar">
@@ -85,7 +88,7 @@ const DoctorSearch = () => {
             {loading && <p className="loading">Loading...</p>}
             <div className="doctor-list">
                 {doctors.map((doctor) => (
-                    <div className="doctor-card" key={doctor.id}>
+                    <div className="doctor-card" key={doctor.id} onClick={()=> handleDoctorClick(doctor.id)}>
                         <img
                             src={`https://via.placeholder.com/100?text=${doctor.name.charAt(0)}`}
                             alt={`${doctor.name} profile`}
@@ -100,6 +103,7 @@ const DoctorSearch = () => {
                             {doctor.distance != null && (
                                 <p><strong>Distance:</strong> {doctor.distance.toFixed(2)} km</p>
                             )}
+                            
                         </div>
                     </div>
                 ))}

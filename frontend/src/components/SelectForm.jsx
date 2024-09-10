@@ -26,7 +26,7 @@ export default function SelectForm(props) {
  
            {Doctors.map((element)=>{
                return <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-               <Doctor name={element.name} speciality={element.specialty} hospital={element.hospital} city={element.city} distance={element.distance} email={element.email}/>
+               <Doctor id={element.id} name={element.name} speciality={element.specialty} hospital={element.hospital} city={element.city} distance={element.distance} email={element.email}/>
                  </div>
            })}
 
