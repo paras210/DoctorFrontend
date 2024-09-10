@@ -1,58 +1,77 @@
-import React, { useState } from 'react';
-
-export default function SpecialtySelection() {
-    const [selectedSpecialty, setSelectedSpecialty] = useState(null);
-    const [selectedRange, setSelectedRange] = useState('Select Radius');
-
-    const specialties = [
-        "GENERAL PHYSICIAN", "ALLERGY AND IMMUNOLOGY", "ANESTHESIOLOGY",
-        "DERMATOLOGY", "DIAGNOSTIC RADIOLOGY", "EMERGENCY MEDICINE",
-        "FAMILY MEDICINE", "INTERNAL MEDICINE", "MEDICAL GENETICS",
-        "NEUROLOGY", "NUCLEAR MEDICINE", "OBSTETRICS AND GYNECOLOGY", "OPHTHALMOLOGY",
-        "PATHOLOGY", "PEDIATRICS", "PHYSICAL MEDICINE AND REHABILITATION",
-        "PREVENTIVE MEDICINE", "PSYCHIATRY", "RADIATION ONCOLOGY",
-        "SURGERY", "UROLOGY", "CARDIOLOGIST", "DERMATOLOGIST",
-        "NEUROLOGIST", "PEDIATRICIAN", "ORTHOPEDIC"
+import React from 'react';
+export default function SpecialtySelection(props) {
+    const specialities = [
+    'GENERAL_PHYSICIAN',
+    'ALLERGY_AND_IMMUNOLOGY',
+    'ANESTHESIOLOGY',
+    'DERMATOLOGY',
+    'DIAGNOSTIC_RADIOLOGY',
+    'EMERGENCY_MEDICINE',
+    'FAMILY_MEDICINE',
+    'INTERNAL_MEDICINE',
+    'MEDICAL_GENETICS',
+    'NEUROLOGY',
+    'NUCLEAR_MEDICINE',
+    'GYNECOLOGY',
+    'OPHTHALMOLOGY',
+    'PATHOLOGY',
+    'PEDIATRICS',
+    'PHYSICAL_MEDICINE',
+    'PREVENTIVE_MEDICINE',
+    'PSYCHIATRY',
+    'RADIATION_ONCOLOGY',
+    'SURGERY',
+    'UROLOGY',
+    'CARDIOLOGIST',
+    'DERMATOLOGIST',
+    'NEUROLOGIST',
+    'PEDIATRICIAN',
+    'ORTHOPEDIC'
     ];
 
     const radiusRanges = [
-        '0-10 km', '10-20 km', '20-30 km', '30-40 km', '40-50 km',
-        '50-60 km', '60-70 km', '70-80 km', '80-90 km', '90-100 km'
+        '10 km', '20 km', '30 km', '40 km', '50 km',
+        '60 km', '70 km', '80 km', '90 km', '100 km'
     ];
 
-    const handleSelection = (specialty) => setSelectedSpecialty(specialty);
-    const handleSelect = (range) => setSelectedRange(range);
+    const handleSelection = (speciality) => {
+        props.setSelectedSpeciality(speciality);
+    };
+
+    const handleSelect = (range) => {
+        props.setSelectedRange(range);
+    };
 
     return (
         <div className="container mt-5">
             <div className="row">
                 <div className="col-lg-8">
-                    <h3 className="mb-4 text-center">Select a Specialty</h3>
+                    <h3 className="mb-4 text-center">Select a Speciality</h3>
                     <div className="row g-3">
-                        {specialties.map((specialty, index) => (
+                        {specialities.map((speciality, index) => (
                             <div key={index} className="col-6 col-md-4">
                                 <button
                                     type="button"
-                                    className={`btn w-100 ${selectedSpecialty === specialty ? 'btn-primary' : 'btn-outline-secondary'}`}
-                                    onClick={() => handleSelection(specialty)}
+                                    className={`btn w-100 ${props.selectedSpeciality === speciality ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                    onClick={() => handleSelection(speciality)}
                                 >
-                                    {specialty}
+                                    {speciality}
                                 </button>
                             </div>
                         ))}
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <h3 className="mb-4 text-center">Select Radius</h3>
+                    <h3 className="mb-4 text-center">Select Distance</h3>
                     <div className="dropdown">
                         <button
-                            className="btn btn-primary dropdown-toggle w-100"
+                            className="btn btn-primary dropdown-toggle w-100 color1Btn"
                             type="button"
                             id="radiusDropdown"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            {selectedRange}
+                            {props.selectedRange}
                         </button>
                         <ul className="dropdown-menu w-100" aria-labelledby="radiusDropdown">
                             {radiusRanges.map((range, index) => (
