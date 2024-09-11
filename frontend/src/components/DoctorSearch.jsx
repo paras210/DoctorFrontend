@@ -27,11 +27,10 @@ const DoctorSearch = () => {
             queryParams += `&userLatitude=${userLocation.latitude}&userLongitude=${userLocation.longitude}`;
         }
 
-        const response = await fetch(`http://192.168.75.225:8080/api/doctors/search?${queryParams}`);
+        const response = await fetch(`http://192.168.210.225:8080/api/doctors/search?${queryParams}`);
         const data = await response.json();
 
-        // Assuming the response includes pagination info
-        setDoctors(data.doctors); // Adjust based on actual response structure
+        setDoctors(data.doctors); 
         setTotalPages(data.totalPages); // Adjust based on actual response structure
         setLoading(false);
         console.log("QUERY  " + queryParams);

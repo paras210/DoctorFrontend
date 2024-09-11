@@ -1,9 +1,9 @@
 import React from 'react'
 import Display from '../images/display5.avif'
-import Speciality from './Speciality'
 import Doctor from './Doctor'
 import Choose from './choose'
 import Crousel from './crousel'
+import Aboutus from './Aboutus'
 export default function Home() {
   return (
     <>
@@ -13,9 +13,11 @@ export default function Home() {
       <Crousel/>
       <Choose/>
 
-
+      <Aboutus/>
+      
       <div className="container py-4">
-        <h2 className='text-center'>Top-Rated Healthcare Professionals</h2>
+        <h1 className='text-center'>Meet Our
+        Experienced Doctors</h1>
         <div className="row ">
           <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
         <Doctor />
@@ -45,6 +47,8 @@ export default function Home() {
         </div>
             
       </div>
+      
+
     </>
   )
 }
