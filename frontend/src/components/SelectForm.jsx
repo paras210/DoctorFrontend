@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Speciality from './Speciality';
 import Doctor from './Doctor';
-import DoctorSearch from './DoctorSearch';
 
 
 export default function SelectForm(props) {
@@ -30,7 +29,6 @@ export default function SelectForm(props) {
 
   return (
     <div>
-        <DoctorSearch/>
 
       <Speciality 
         selectedSpeciality={props.selectedSpeciality} 
