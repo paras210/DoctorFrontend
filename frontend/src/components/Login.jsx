@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,7 +17,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://192.168.210.225:8080/api/auth/signin', {
+      const response = await fetch('https://medilocate-2-0.onrender.com/api/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +34,8 @@ const Login = () => {
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
 
-      alert('Login successful!');
+      // alert('Login successful!');
+      navigate('/'); // Redirect to the home page after successful login
     } catch (err) {
       setError(err.message || 'Something went wrong');
     }

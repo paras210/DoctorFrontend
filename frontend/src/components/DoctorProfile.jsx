@@ -13,7 +13,7 @@ const formatDateTime = (dateString) => {
     };
 };
 
-const DoctorProfile = () => {
+const DoctorProfile = (props) => {
     const { doctorId } = useParams();
     const [doctor, setDoctor] = useState(null);
     const [slots, setSlots] = useState([]);
@@ -22,7 +22,7 @@ const DoctorProfile = () => {
     const [bookingStatus, setBookingStatus] = useState('');
 
     useEffect(() => {
-        fetch(`http://192.168.210.225:8080/api/doctors/${doctorId}`)
+        fetch(`http://13.126.105.175:8080/api/doctors/${doctorId}`)
             .then((response) => response.json())
             .then((data) => setDoctor(data))
             .catch(error => console.error("Error fetching doctor details:", error));
@@ -31,7 +31,7 @@ const DoctorProfile = () => {
     const fetchSlots = (date) => {
         setLoadingSlots(true);
         let formattedDate = date ? date.toISOString().split('T')[0] : '';
-        let url = `http://192.168.210.225:8080/api/slots/doctor/${doctorId}`;
+        let url = `http://13.126.105.175:8080/api/slots/doctor/${doctorId}`;
         if (formattedDate) {
             url += `?date=${formattedDate}`;
         }
@@ -55,7 +55,7 @@ const DoctorProfile = () => {
     const handleSlotClick = (slot) => {
         if (slot.status === 'AVAILABLE') {
             if (window.confirm(`Do you want to book the slot on ${formatDateTime(slot.startTime).date} from ${formatDateTime(slot.startTime).time} to ${formatDateTime(slot.endTime).time}?`)) {
-                fetch(`http://192.168.210.225:8080/api/appointments/book`, {
+                fetch(`http://13.126.105.175:8080/api/appointments/book`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const Appointments = () => {
   const fetchAppointments = async (page = 1, status = 'ALL') => {
     setLoading(true);
     try {
-      const url = `http://192.168.210.225:8080/api/appointments/user?page=${page}`;
+      const url = `http://13.126.105.175:8080/api/appointments/user?page=${page}`;
       const response = await fetch(url);
       const data = await response.json();
 

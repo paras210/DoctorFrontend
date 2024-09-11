@@ -21,7 +21,7 @@ const SlotRetrieval = () => {
         const userLatitude = locationAccess ? 29.250062 : null; 
         const userLongitude = locationAccess ? 77.009861 : null; 
         const response = await fetch(
-            `http://192.168.75.225:8080/api/slots/doctor/1?date=2024-09-15`
+            `http://13.126.105.175:8080/api/slots/doctor/1?date=2024-09-15`
         );
         const data = await response.json();
         setDoctors(data);

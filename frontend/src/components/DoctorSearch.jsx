@@ -27,7 +27,7 @@ const DoctorSearch = () => {
             queryParams += `&userLatitude=${userLocation.latitude}&userLongitude=${userLocation.longitude}`;
         }
 
-        const response = await fetch(`http://192.168.210.225:8080/api/doctors/search?${queryParams}`);
+        const response = await fetch(`https://medilocate-2-0.onrender.com/api/doctors/search?${queryParams}`);
         const data = await response.json();
 
         setDoctors(data.doctors); 
