@@ -66,6 +66,7 @@ const DoctorProfile = (props) => {
                     if (response.ok) {
                         setBookingStatus('Slot booked successfully!');
                         fetchSlots(selectedDate);
+                        console.log("hi")
                     } else {
                         setBookingStatus('Failed to book the slot.');
                     }
