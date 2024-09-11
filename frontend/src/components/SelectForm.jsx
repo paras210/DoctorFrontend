@@ -6,17 +6,14 @@ import DoctorSearch from './DoctorSearch';
 
 export default function SelectForm(props) {
   const [Doctors, setDoctors] = useState([]);
-  const initialRender = useRef(true); // Ref to track initial render
+  const initialRender = useRef(true); 
 
   const fetchingData = async () => {
     console.log(props.apikey);
     
     let url = "http://192.168.210.225:8080/api/doctors/search-closest?userLatitude=29.250062&userLongitude=77.009861&specialty=CARDIOLOGIST&radius=10"
 
-    // let url = `${props.apikey}/api/doctors/search-closest?userLatitude=29.250062&userLongitude=77.009861&specialty=${props.selectedSpeciality}&radius=${props.selectedRange}`;
-    // let url = `${props.apikey}/api/doctors/search-closest?userLatitude=29.250062&userLongitude=77.009861&specialty=CARDIOLOGIST&radius=10`;
-
-    // let url = `${baseUrl}/api/doctors/search-closest?userLatitude=${userLatitude}&userLongitude=${userLongitude}&specialty=${specialty}&radius=${radius}`;
+    
     let data = await fetch(url);
     let parsedData = await data.json();
     setDoctors(parsedData.doctors);
@@ -25,9 +22,9 @@ export default function SelectForm(props) {
 
   useEffect(() => {
     if (initialRender.current) {
-      initialRender.current = false; // Skip the first render
+      initialRender.current = false; 
     } else {
-      fetchingData(); // Fetch data only on parameter change after the first render
+      fetchingData(); 
     }
   }, [props.selectedSpeciality, props.selectedRange]);
 

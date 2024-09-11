@@ -7,9 +7,7 @@ import Aboutus from './Aboutus'
 export default function Home() {
   return (
     <>
-      {/* <div className="container-xxl p-0 custom-max-height" >
-        <img src={Display} alt="" className="img-fluid w-100 " />
-      </div> */}
+      
       <Crousel/>
       <Choose/>
 

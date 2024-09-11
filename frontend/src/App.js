@@ -11,6 +11,9 @@ import { useState } from 'react';
 import SlotRetrieval from './components/SlotRetrieval';
 import Appointments from './components/Appointments';
 import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+
+
 function App() {
   const [selectedSpeciality, setSelectedSpeciality] = useState("CARDIOLOGIST");
   const [selectedRange, setSelectedRange] = useState('10');
@@ -30,7 +33,14 @@ function App() {
             <Route exact path="/appointments" element={<Appointments apikey={apikey}/>}/>
             <Route exact path="/doctor/:doctorId" element={<DoctorProfile apikey={apikey} id={id} setId={setId}/>}/>
             <Route exact path="/select" element={<Select apikey={apikey} selectedSpeciality={selectedSpeciality} selectedRange={selectedRange} setSelectedSpeciality={setSelectedSpeciality} setSelectedRange={setSelectedRange} />}/>
-
+            <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Appointments />
+            </PrivateRoute>
+          }
+        />
           </Routes>
         <Footer/>
       </Router>

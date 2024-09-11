@@ -130,11 +130,7 @@ const DoctorProfile = () => {
                 )}
             </div>
 
-            {/* {bookingStatus && (
-                <div className="booking-status">
-                    <p>{bookingStatus}</p>
-                </div>
-            )} */}
+            
         </div>
     );
 };

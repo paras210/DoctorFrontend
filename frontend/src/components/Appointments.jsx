@@ -48,7 +48,6 @@ const Appointments = () => {
     <div className="appointments-page">
       <h1>Your Appointments</h1>
 
-      {/* Filter buttons */}
       <div className="filter-buttons">
         <button onClick={() => handleStatusChange('ALL')} className={selectedStatus === 'ALL' ? 'active' : ''}>Get All</button>
         <button onClick={() => handleStatusChange('BOOKED')} className={selectedStatus === 'BOOKED' ? 'active' : ''}>Get Booked (Upcoming)</button>
@@ -56,10 +55,8 @@ const Appointments = () => {
         <button onClick={() => handleStatusChange('CANCELLED')} className={selectedStatus === 'CANCELLED' ? 'active' : ''}>Cancelled</button>
       </div>
 
-      {/* Loading indicator */}
       {loading && <p>Loading appointments...</p>}
 
-      {/* Appointments list in cards */}
       <div className="appointments-list">
         {!loading && appointments.length > 0 ? (
           appointments.map((appointment) => (
@@ -76,7 +73,6 @@ const Appointments = () => {
         )}
       </div>
 
-      {/* Pagination */}
       <div className="pagination">
         <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
           Previous

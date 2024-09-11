@@ -21,7 +21,7 @@ const DoctorSearch = () => {
     const fetchDoctors = useCallback(debounce(async (searchTerm, page) => {
         setLoading(true);
 
-        // Build the query string dynamically
+      
         let queryParams = `name=${searchTerm}&page=${page}&size=10`;
         if (locationAccess && userLocation.latitude && userLocation.longitude) {
             queryParams += `&userLatitude=${userLocation.latitude}&userLongitude=${userLocation.longitude}`;
@@ -31,7 +31,7 @@ const DoctorSearch = () => {
         const data = await response.json();
 
         setDoctors(data.doctors); 
-        setTotalPages(data.totalPages); // Adjust based on actual response structure
+        setTotalPages(data.totalPages); 
         setLoading(false);
         console.log("QUERY  " + queryParams);
     }, 1000), [locationAccess, userLocation]);
@@ -44,7 +44,7 @@ const DoctorSearch = () => {
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
-        setPage(1); // Reset to first page on new search
+        setPage(1); 
     };
 
     const handlePageChange = (newPage) => {
@@ -55,13 +55,13 @@ const DoctorSearch = () => {
 
     const handleLocationAccess = () => {
         setLocationAccess(!locationAccess);
-        // You can also fetch and set user location here if needed
+       
     };
 
     useEffect(() => {
-        // Example of setting user location (can be replaced with actual geolocation logic)
+        
         if (locationAccess) {
-            // Mock location for demonstration
+           
             setUserLocation({
                 latitude: 29.250062,
                 longitude: 77.009861
@@ -69,7 +69,7 @@ const DoctorSearch = () => {
         }
     }, [locationAccess]);
     const handleDoctorClick = (doctorId) => {
-        navigate(`/doctor/${doctorId}`); // Navigate to doctor profile page
+        navigate(`/doctor/${doctorId}`); 
     };
     return (
         <div className="doctor-search-container">

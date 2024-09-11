@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-// Debounce function
 const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -17,11 +16,10 @@ const SlotRetrieval = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [locationAccess, setLocationAccess] = useState(true);
 
-    // Fetch doctors based on search term, page, and location access
     const fetchDoctors = useCallback(debounce(async (searchTerm, page) => {
         setLoading(true);
-        const userLatitude = locationAccess ? 29.250062 : null; // Example latitude
-        const userLongitude = locationAccess ? 77.009861 : null; // Example longitude
+        const userLatitude = locationAccess ? 29.250062 : null; 
+        const userLongitude = locationAccess ? 77.009861 : null; 
         const response = await fetch(
             `http://192.168.75.225:8080/api/slots/doctor/1?date=2024-09-15`
         );
@@ -38,7 +36,7 @@ const SlotRetrieval = () => {
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
-        setPage(1); // Reset to first page on new search
+        setPage(1); 
     };
 
     const handlePageChange = (newPage) => {
@@ -46,7 +44,6 @@ const SlotRetrieval = () => {
     };
 
     const handleLocationAccess = () => {
-        // Example function to toggle location access
         setLocationAccess(!locationAccess);
     };
 

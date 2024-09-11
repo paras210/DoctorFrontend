@@ -39,7 +39,6 @@ export default function SpecialtySelection(props) {
     };
 
     const handleSelect = (range) => {
-        // Remove ' km' from the range value before setting it in state
         const rangeValue = range.replace(' km', '');
         props.setSelectedRange(rangeValue);
     };

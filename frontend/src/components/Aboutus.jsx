@@ -3,7 +3,6 @@ import image from '../services/big2.jpg'
 export default function AboutAndFeatures() {
   return (
     <div>
-      {/* About Us Section */}
       <div className=" container-xxl bg-light py-5">
         <div className="container">
           <h2 className="text-center mb-4">About Us</h2>
@@ -23,7 +22,6 @@ export default function AboutAndFeatures() {
         </div>
       </div>
 
-      {/* Features Section */}
       <section className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">Our Features</h2>

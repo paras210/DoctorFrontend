@@ -7,14 +7,13 @@ export default function book() {
         <div className="col-md-3">
 
         </div>
-        {/* form */}
       <div className="col-md-6 p-3">
       <div className='text-center mb-4'>
         <img
           src={photo}
           className="rounded-circle"
           alt="Profile"
-          style={{ width: '150px', height: '150px' }} // Adjust size as needed
+          style={{ width: '150px', height: '150px' }} 
         />
       </div>
 

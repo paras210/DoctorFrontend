@@ -1,12 +1,10 @@
-// src/components/Login.js
-
 import React, { useState } from 'react';
 
 const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
@@ -17,7 +15,7 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/signin', {
+      const response = await fetch('http://192.168.210.225:8080/api/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,8 +28,7 @@ const Login = () => {
       }
 
       const data = await response.json();
-      
-      // Store the JWT tokens in localStorage
+
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
 
@@ -42,30 +39,38 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Username:</label>
-          <input 
-            type="text" 
-            value={userName} 
-            onChange={(e) => setUserName(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+    <div className="container d-flex align-items-center justify-content-center min-vh-100">
+      <div className="card shadow-lg p-4" style={{ maxWidth: '400px', width: '100%' }}>
+        <h2 className="text-center mb-4" style={{ fontFamily: 'Arial, sans-serif', color: '#343a40' }}>Login</h2>
+        {error && <div className="alert alert-danger" role="alert">{error}</div>}
+        <form onSubmit={handleLogin}>
+          <div className="form-group mb-3">
+            <label htmlFor="username" className="form-label">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div className="form-group mb-3">
+            <label htmlFor="password" className="form-label">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
     </div>
   );
 };
