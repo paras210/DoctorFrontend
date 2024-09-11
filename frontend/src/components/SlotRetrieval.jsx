@@ -21,7 +21,7 @@ const SlotRetrieval = () => {
         const userLatitude = locationAccess ? 29.250062 : null; 
         const userLongitude = locationAccess ? 77.009861 : null; 
         const response = await fetch(
-            `http://13.126.105.175:8080/api/slots/doctor/1?date=2024-09-15`
+            `https://medilocate-2-0.onrender.com/api/slots/doctor/1?date=2024-09-15`
         );
         const data = await response.json();
         setDoctors(data);

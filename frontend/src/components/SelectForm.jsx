@@ -11,7 +11,7 @@ export default function SelectForm(props) {
   const fetchingData = async () => {
     console.log(props.apikey);
     
-    let url = "http://13.126.105.175:8080/api/doctors/search-closest?userLatitude=29.250062&userLongitude=77.009861&specialty=CARDIOLOGIST&radius=10"
+    let url = `https://medilocate-2-0.onrender.com/api/doctors/search-closest?userLatitude=29.250062&userLongitude=77.009861&specialty=${props.selectedSpeciality}&radius=${props.selectedRange}`
 
     
     let data = await fetch(url);

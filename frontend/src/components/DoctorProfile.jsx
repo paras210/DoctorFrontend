@@ -22,7 +22,7 @@ const DoctorProfile = (props) => {
     const [bookingStatus, setBookingStatus] = useState('');
 
     useEffect(() => {
-        fetch(`http://13.126.105.175:8080/api/doctors/${doctorId}`)
+        fetch(`https://medilocate-2-0.onrender.com/api/doctors/${doctorId}`)
             .then((response) => response.json())
             .then((data) => setDoctor(data))
             .catch(error => console.error("Error fetching doctor details:", error));
@@ -31,7 +31,7 @@ const DoctorProfile = (props) => {
     const fetchSlots = (date) => {
         setLoadingSlots(true);
         let formattedDate = date ? date.toISOString().split('T')[0] : '';
-        let url = `http://13.126.105.175:8080/api/slots/doctor/${doctorId}`;
+        let url = `https://medilocate-2-0.onrender.com/api/slots/doctor/${doctorId}`;
         if (formattedDate) {
             url += `?date=${formattedDate}`;
         }
@@ -55,7 +55,7 @@ const DoctorProfile = (props) => {
     const handleSlotClick = (slot) => {
         if (slot.status === 'AVAILABLE') {
             if (window.confirm(`Do you want to book the slot on ${formatDateTime(slot.startTime).date} from ${formatDateTime(slot.startTime).time} to ${formatDateTime(slot.endTime).time}?`)) {
-                fetch(`http://13.126.105.175:8080/api/appointments/book`, {
+                fetch(`https://medilocate-2-0.onrender.com/api/appointments/book`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -13,38 +13,7 @@ export default function Home() {
 
       <Aboutus/>
       
-      <div className="container py-4">
-        <h1 className='text-center'>Meet Our
-        Experienced Doctors</h1>
-        <div className="row ">
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-          <div className="col-md-4 col-lg-3 col-sm-6 d-flex justify-content-center py-3">
-        <Doctor />
-          </div>
-            
-        </div>
-            
-      </div>
+      
       
 
     </>

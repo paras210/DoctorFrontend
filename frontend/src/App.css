@@ -355,3 +355,9 @@ h1 {
 .color2{
   background-color:rgb(27, 31, 34);
 }
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
