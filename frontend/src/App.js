@@ -25,7 +25,7 @@ function App() {
         <Navbar />
         
           <Routes>
-            <Route exact path="/" element={<Home apikey={apikey}/>}/>
+            <Route exact path="/" element={<Home apikey={apikey} selectedSpeciality={selectedSpeciality} selectedRange={selectedRange} setSelectedSpeciality={setSelectedSpeciality} setSelectedRange={setSelectedRange}/>}/>
             <Route exact path="/book" element={<Booking apikey={apikey}/>}/>
             <Route exact path="/search" element={<DoctorSearch apikey={apikey}/>}/>
             <Route exact path="/login" element={<Login apikey={apikey}/>}/>
