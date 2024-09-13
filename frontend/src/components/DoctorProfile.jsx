@@ -86,7 +86,7 @@ const DoctorProfile = (props) => {
         <div className="doctor-profile container">
             
             {doctor ? (
-                <div className="doctor-details col-md-6">
+                <div className="doctor-details col-md-6 col-12">
                     <h1>{doctor.name}</h1>
                     <p><strong>Hospital:</strong> {doctor.hospital}</p>
                     <p><strong>City:</strong> {doctor.city}</p>
